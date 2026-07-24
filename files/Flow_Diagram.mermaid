@@ -1,0 +1,76 @@
+flowchart TD
+    subgraph Purchasing["ALUR PEMBELIAN"]
+        A1[Buat Purchase Order ke Supplier] --> A2{Perlu Approval?}
+        A2 -->|Ya| A3[Approval Owner/Admin]
+        A2 -->|Tidak| A4[PO Approved otomatis]
+        A3 --> A4
+        A4 --> A5[Barang Datang: Goods Receipt]
+        A5 --> A6[Stock Ledger: PURCHASE_IN]
+        A6 --> A7[Update product_stock +qty]
+        A5 --> A8{Bayar Cash?}
+        A8 -->|Ya| A9[Cash Ledger: OUT - purchase_payment]
+        A8 -->|Tidak/Kredit| A10[Accounts Payable: outstanding]
+        A9 --> A11[Update Saldo Kas]
+        A10 --> A12[Jatuh Tempo -> Bayar Hutang]
+        A12 --> A9
+    end
+
+    subgraph Sales["ALUR PENJUALAN"]
+        B1[Transaksi Penjualan dari Kasir/API] --> B2[Cek Stok Cukup?]
+        B2 -->|Tidak Cukup| B3[Tolak/Reject Transaksi]
+        B2 -->|Cukup| B4[Lock Row product_stock FOR UPDATE]
+        B4 --> B5[Stock Ledger: SALES_OUT + unit_cost untuk HPP]
+        B5 --> B6[Update product_stock -qty]
+        B6 --> B7{Bayar Cash?}
+        B7 -->|Ya| B8[Cash Ledger: IN - sales]
+        B7 -->|Tidak/Kredit| B9[Accounts Receivable: outstanding]
+        B8 --> B10[Update Saldo Kas]
+        B9 --> B11[Pelanggan Bayar -> Receivable Payment]
+        B11 --> B8
+    end
+
+    subgraph Transfer["ALUR TRANSFER ANTAR CABANG"]
+        C1[Admin Cabang A ajukan Transfer ke Cabang B] --> C2[Status: pending]
+        C2 --> C3[Barang Dikirim]
+        C3 --> C4[Stock Ledger Cabang A: TRANSFER_OUT]
+        C4 --> C5[Status: in_transit]
+        C5 --> C6[Cabang B Konfirmasi Terima]
+        C6 --> C7[Stock Ledger Cabang B: TRANSFER_IN]
+        C7 --> C8[Status: received]
+    end
+
+    subgraph Opname["ALUR STOCK OPNAME"]
+        D1[Hitung Fisik Stok] --> D2[Input physical_quantity]
+        D2 --> D3[Sistem Hitung Selisih vs system_quantity]
+        D3 --> D4{Ada Selisih?}
+        D4 -->|Tidak| D5[Finalisasi tanpa perubahan]
+        D4 -->|Ya, Lebih| D6[Stock Ledger: ADJUSTMENT_IN]
+        D4 -->|Ya, Kurang| D7[Stock Ledger: ADJUSTMENT_OUT]
+        D7 --> D8{Selisih Material?}
+        D8 -->|Ya| D9[Cash Ledger: OUT - kategori kerugian/shrinkage]
+    end
+
+    subgraph Expense["ALUR PENGELUARAN NON-STOK"]
+        E1[Input Biaya Operasional: listrik, gaji, sewa] --> E2[Cash Ledger: OUT - operational_expense]
+        E3[Input Modal/Pinjaman Masuk] --> E4[Cash Ledger: IN - capital_injection/loan]
+    end
+
+    subgraph Reporting["PELAPORAN REAL-TIME"]
+        F1[(stock_ledger)] --> F2[Laporan Stok & Nilai Stok]
+        F3[(cash_ledger)] --> F4[Laporan Kas Masuk/Keluar]
+        F1 --> F5[Hitung HPP]
+        F3 --> F6[Laba Rugi Sederhana]
+        F5 --> F6
+    end
+
+    A6 --> F1
+    B5 --> F1
+    C4 --> F1
+    C7 --> F1
+    D6 --> F1
+    D7 --> F1
+    A9 --> F3
+    B8 --> F3
+    D9 --> F3
+    E2 --> F3
+    E4 --> F3

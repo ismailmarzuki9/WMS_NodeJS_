@@ -1,0 +1,9 @@
+DB_TYPE=postgres
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=db_inventory
+DB_USER=postgres
+DB_PASSWORD=
+
+ACCESS_TOKEN_SECRET = secretTokent1212338676MM:@
+REFRESH_TOKEN_SECRET = randomvaluejuga12b3jbfjfjfbebasisiapasaja766g
