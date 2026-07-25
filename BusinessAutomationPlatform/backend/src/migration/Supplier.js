@@ -3,7 +3,7 @@ const sequelize = require("../config/database");
 
 const Supplier = sequelize.define("Supplier", {
 
-    id:{
+    supplier_id:{
         type:DataTypes.BIGINT,
         autoIncrement:true,
         primaryKey:true

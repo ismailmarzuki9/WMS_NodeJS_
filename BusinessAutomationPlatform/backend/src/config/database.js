@@ -3,8 +3,8 @@ const env = require('dotenv').config({
     path : "../../.env"
 });
 
-console.log(env);
-console.log(process.env.DB_TYPE);
+// console.log(env);
+// console.log(process.env.DB_TYPE);
 
 const dbseq = new Sequelize(
     process.env.DB_NAME,

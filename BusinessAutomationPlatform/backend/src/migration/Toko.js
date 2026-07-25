@@ -1,9 +1,9 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
-const Unit = sequelize.define("Unit",{
+const Toko = sequelize.define("Toko",{
 
-    id:{
+    toko_id:{
         type:DataTypes.BIGINT,
         autoIncrement:true,
         primaryKey:true
@@ -19,9 +19,9 @@ const Unit = sequelize.define("Unit",{
     }
 
 },{
-    tableName:"units",
+    tableName:"toko",
     timestamps:true,
     underscored:true
 });
 
-module.exports = Unit;
+module.exports = Toko;

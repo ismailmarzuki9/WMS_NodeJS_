@@ -1,16 +1,34 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
-const Product = sequelize.define("Product",{
+const Product = sequelize.define("products", {
 
-    id:{
+    Product_id:{
         type:DataTypes.BIGINT,
         autoIncrement:true,
         primaryKey:true
     },
 
+    category_id:{
+        type:DataTypes.BIGINT,
+        allowNull:false,
+        references:{
+            model:"categories",
+            key:"category_id"
+        }
+    },
+
+    supplier_id:{
+        type:DataTypes.BIGINT,
+        allowNull:false,
+        references:{
+            model:"suppliers",
+            key:"supplier_id"
+        }
+    },
+
     sku:{
-        type:DataTypes.STRING(100),
+        type:DataTypes.STRING(50),
         unique:true
     },
 
@@ -20,23 +38,7 @@ const Product = sequelize.define("Product",{
     },
 
     name:{
-        type:DataTypes.STRING(150),
-        allowNull:false
-    },
-
-    category_id: {
-        type: DataTypes.BIGINT,
-        allowNull: false,
-        references: {
-            model: "categories",
-            key: "id"
-        },
-        onUpdate: "CASCADE",
-        onDelete: "RESTRICT"
-    },
-
-    unit_id:{
-        type:DataTypes.BIGINT,
+        type:DataTypes.STRING(200),
         allowNull:false
     },
 
@@ -61,9 +63,7 @@ const Product = sequelize.define("Product",{
     }
 
 },{
-    tableName:"products",
-    timestamps:true,
-    underscored:true
+    timestamps:true
 });
 
-module.exports = Product;
+module.exports=Product;
