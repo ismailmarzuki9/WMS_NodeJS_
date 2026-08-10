@@ -1,4 +1,25 @@
 {
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/ismailmarzuki9/WMS_NodeJS_#readme",
+  "bugs": {
+    "url": "https://github.com/ismailmarzuki9/WMS_NodeJS_/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ismailmarzuki9/WMS_NodeJS_.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "cookie-parser": "^1.4.7",
     "cros": "^1.1.0",
@@ -7,5 +28,6 @@
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.22.0",
     "sequelize": "^6.37.8"
-  }
+  },
+  "devDependencies": {}
 }

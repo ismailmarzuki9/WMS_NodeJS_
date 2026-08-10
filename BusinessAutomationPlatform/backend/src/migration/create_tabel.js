@@ -13,7 +13,7 @@ const create_tb_Stockmovment = require("./StockMovment");
 
         console.log("Database Connected");
 
-        // await create_tb_user.sync(); // kode yang membuat tabel
+        await create_tb_user.sync(); // kode yang membuat tabel
         await create_tb_Supplier.sync(); // kode yang membuat tabel
         await create_tb_Customer.sync(); // kode yang membuat tabel
         await create_tb_Category.sync(); // kode yang membuat tabel

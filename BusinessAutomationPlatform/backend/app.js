@@ -1,5 +1,5 @@
 const express = require ('express');
-const routes = require('./app/routers/web');
+const routes = require('./src/routes/web');
 // const expressLayouts = require('express-ejs-layout');
 const cookieParser = require('cookie-parser');
 
