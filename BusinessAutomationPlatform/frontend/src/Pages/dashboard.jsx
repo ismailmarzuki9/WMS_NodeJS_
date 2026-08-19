@@ -6,10 +6,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
+import StockMovementChart from '../Components/dashboard/StockMovementChart';
+import StockAccuracy from '../Components/dashboard/StockAccuracy';
+
 const Dashboard = () => ( /* cara menampilkan implicit return sehingga tidak perlu return di dalam function */
     <Container fluid className='dashboard-container'>
 
-      <Row className="m-0 p-1 bg-smok align-items-center">
+      <Row className="m-0 p-1 align-items-center">
         
         {/* Dropdown */}
         <Col xs="auto">
@@ -57,7 +60,7 @@ const Dashboard = () => ( /* cara menampilkan implicit return sehingga tidak per
         </Col>
       </Row>
 
-      <Row>
+      <Row className=' bacg-smok'>
 
         <Col>
           <h5>Dashboard</h5>
@@ -68,40 +71,38 @@ const Dashboard = () => ( /* cara menampilkan implicit return sehingga tidak per
           <Button className="p-1"> + Transaksi Baru</Button>
         </Col>
 
+        {/* total nilai stok */}
         <div class="d-flex justify-content-around">
           <div className="card">
             <p>Total Nilai Stok</p>
             <p>Rp 8.4M</p>
           </div>
+
           <div className="card">
             <p>Total Nilai Stok</p>
             <p>Rp 8.4M</p>
           </div>
+
           <div className="card">
             <p>Total Nilai Stok</p>
             <p>Rp 8.4M</p>
           </div>
-          <div className="card">
-            <p>Total Nilai Stok</p>
-            <p>Rp 8.4M</p>
-          </div>
-          <div className="card">
-            <p>Total Nilai Stok</p>
-            <p>Rp 8.4M</p>
-          </div>
-          <div className="card">
-            <p>Total Nilai Stok</p>
-            <p>Rp 8.4M</p>
-          </div>
-          <div className="card">
-            <p>Total Nilai Stok</p>
-            <p>Rp 8.4M</p>
-          </div>
+
           <div className="card">
             <p>Total Nilai Stok</p>
             <p>Rp 8.4M</p>
           </div>
         </div>
+
+        {/* grafik */}
+        <Row className="grafik"> 
+            <Col lg={8}>
+              <StockMovementChart/>
+            </Col>
+            <Col lg={4}>
+              <StockAccuracy />
+            </Col>
+        </Row>
         
       </Row>
 

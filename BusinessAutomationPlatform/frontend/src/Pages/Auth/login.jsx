@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Link } from 'react-router-dom';
 
 const login = () => {
     return (
@@ -40,13 +41,10 @@ const login = () => {
                     <Form.Label className="field">Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
                 <Button variant="primary" type="submit" className="btn btn-primary btn-block">
                     Masuk →
                 </Button>
-                <div className="hint-row"><span>Lupa kata sandi?</span><a href="#">Hubungi admin</a></div>
+                <div className="hint-row"><span>Lupa kata sandi?</span><a as={link} to="/Register">Register</a></div>
                 </div>
             </Form>
         </Col> 
