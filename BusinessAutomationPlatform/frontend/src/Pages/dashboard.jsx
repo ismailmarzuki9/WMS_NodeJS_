@@ -8,6 +8,8 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 import StockMovementChart from '../Components/dashboard/StockMovementChart';
 import StockAccuracy from '../Components/dashboard/StockAccuracy';
+import Reportstok from '../Components/dashboard/Reportstok';
+import Aktifitasterbaru from '../Components/dashboard/Aktifitasterbaru';
 
 const Dashboard = () => ( /* cara menampilkan implicit return sehingga tidak perlu return di dalam function */
     <Container fluid className='dashboard-container'>
@@ -95,13 +97,23 @@ const Dashboard = () => ( /* cara menampilkan implicit return sehingga tidak per
         </div>
 
         {/* grafik */}
-        <Row className="grafik"> 
+        <Row className="grafik mt-2"> 
             <Col lg={8}>
               <StockMovementChart/>
             </Col>
             <Col lg={4}>
               <StockAccuracy />
             </Col>
+        </Row>
+
+        <Row className='grafik m-2'>
+          <Col lg={8} >
+            <Reportstok/>
+            <p>haha</p>
+          </Col>
+          <Col lg={4}>
+          <Aktifitasterbaru/>
+          </Col>
         </Row>
         
       </Row>

@@ -44,7 +44,7 @@ const login = () => {
                 <Button variant="primary" type="submit" className="btn btn-primary btn-block">
                     Masuk →
                 </Button>
-                <div className="hint-row"><span>Lupa kata sandi?</span><a as={link} to="/Register">Register</a></div>
+                <div className="hint-row"><span>Lupa kata sandi?</span><Link to="/Register">Register</Link></div>
                 </div>
             </Form>
         </Col> 
