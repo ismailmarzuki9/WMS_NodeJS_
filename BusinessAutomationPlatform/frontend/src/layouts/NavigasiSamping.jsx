@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import SidebarComponent from "../components/SidebarComponent";
 
 function NavigasiSamping() {
-    const [collapsed, setCollapsed] = useState(true);
+    const [collapsed, setCollapsed] = useState(false); // untuk lebar mini sidebar
     const toggleSidebar = () => {
         setCollapsed(prev => !prev);
     };

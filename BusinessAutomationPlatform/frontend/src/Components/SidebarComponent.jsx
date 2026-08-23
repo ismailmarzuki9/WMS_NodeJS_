@@ -55,7 +55,7 @@ function SidebarComponent({ collapsed, onToggle }) {
 
                 <Nav.Link
                     as={Link}
-                    to="/produk"
+                    to="/Produk"
                     className="sidebar-link"
                 >
                     <span className="sidebar-icon">
@@ -103,6 +103,21 @@ function SidebarComponent({ collapsed, onToggle }) {
                     )}
                 </Nav.Link>
 
+                <Nav.Link
+                    as={Link}
+                    to="/gudang"
+                    className="sidebar-link"
+                >
+                    <span className="sidebar-icon">
+                        ⌂
+                    </span>
+
+                    {!collapsed && (
+                        <span>
+                            Gudang
+                        </span>
+                    )}
+                </Nav.Link>
 
                 <Nav.Link
                     as={Link}

@@ -68,8 +68,8 @@ function StockAccuracy() {
 
                     <div
                         style={{
-                            width: '110px',
-                            height: '110px'
+                            width: '100px',
+                            height: '100px'
                         }}
                     >
                         <Doughnut

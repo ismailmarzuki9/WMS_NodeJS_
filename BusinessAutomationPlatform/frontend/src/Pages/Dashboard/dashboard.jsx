@@ -6,10 +6,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-import StockMovementChart from '../Components/dashboard/StockMovementChart';
-import StockAccuracy from '../Components/dashboard/StockAccuracy';
-import Reportstok from '../Components/dashboard/Reportstok';
-import Aktifitasterbaru from '../Components/dashboard/Aktifitasterbaru';
+import StockMovementChart from '../../Components/dashboard_Component/StockMovementChart';
+import StockAccuracy from '../../Components/dashboard_Component/StockAccuracy';
+import Reportstok from '../../Components/dashboard_Component/StockMenipis';
+import Aktifitasterbaru from '../../Components/dashboard_Component/Aktifitasterbaru';
+import AppButton from '../../Components/Common/Button/ButtonSave';
 
 const Dashboard = () => ( /* cara menampilkan implicit return sehingga tidak perlu return di dalam function */
     <Container fluid className='dashboard-container'>
@@ -69,12 +70,12 @@ const Dashboard = () => ( /* cara menampilkan implicit return sehingga tidak per
           <p>Ringkasan operasional Gudang Pusat – Jakarta, 14 Agustus 2026</p>
         </Col>
         <Col className="d-flex justify-content-end my-3">
-          <Button className="p-1 mx-1">Exsport Ringkasan</Button>
-          <Button className="p-1"> + Transaksi Baru</Button>
+          <AppButton variant='danger'> Exsport Ringkasan</AppButton>
+          <AppButton type='submit'> + Transaksi Baru </AppButton>
         </Col>
 
         {/* total nilai stok */}
-        <div class="d-flex justify-content-around">
+        <div className="d-flex justify-content-around">
           <div className="card">
             <p>Total Nilai Stok</p>
             <p>Rp 8.4M</p>
