@@ -1,12 +1,18 @@
-
-
 class Api {
+    baseURL = import.meta.env.VITE_API_URL;
 
-    baseURL = process.env.VITE_API_URL;
-    getAll = this.baseURL('/api/suppliers')
-    constructor(){
-        console.log(this.getAllL);
+    async get(endpoint) {
+        const responst = await fetch(`${this.baseURL}${endpoint}`);
+        console.log(responst);
+        if (!responst.ok) {
+            throw new Error(`HTTP Error : ${responst.status}`);
+        }
+        
+        return await responst.json();
     }
 }
+
+// API = new Api('/api/suppliers');
+// console.log(API);
 
 export default Api;

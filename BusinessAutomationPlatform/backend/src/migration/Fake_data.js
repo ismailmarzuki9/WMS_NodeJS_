@@ -1,5 +1,6 @@
 import sequelize from "../config/database.js";
 import create_tb_Customer from "./Customer.js";
+import create_tb_Supplier from "./Supplier.js";
 
 import { faker } from '@faker-js/faker';
 
@@ -21,8 +22,19 @@ async function seedDatabase() {
         //     stock: faker.number.int({ min: 10, max: 100 })
         // }));
 
-        // 3. Masukkan data ke database menggunakan bulkCreate
+        // 3. Generate 50 data Supplier palsu
+        const fakeSuppliers = Array.from({ length: 50 }).map(() => ({
+            company_name: faker.commerce.productName(),
+            owner_name  : faker.person.fullName(),
+            phone       : faker.phone.number(),
+            email       : faker.internet.email(),
+            address     : faker.location.streetAddress()
+        }));
+
+
+        //=== Masukkan data ke database menggunakan bulkCreate
         await create_tb_Customer.bulkCreate(fakeCustomers);
+        await create_tb_Supplier.bulkCreate(fakeSuppliers);
         // await create_tb_Product.bulkCreate(fakeProducts);
 
         console.log(" Data fake berhasil dimasukkan!");

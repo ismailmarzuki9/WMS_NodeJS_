@@ -7,27 +7,38 @@ import AppModal from "../../Components/Common/Modal/modal";
 
 import { suppliers } from "../../Datasementara/suppliers";
 import { supplierColumns } from "../../config/tableConfig/supplierColumns";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loading from "../../Components/Common/Loading/loading";
 import ConfirmDialog from "../../Components/Common/ConfirmDialog/ConfirmDialog";
+import supplierServices from "../../Services/supplierService.js";
+import { Await } from "react-router-dom";
 
 const SupplierList = () => {
     // arry yang menjelaskan keaddan state
-    const [showModal, setShowModal] =
-        useState(false);
+    const [showModal, setShowModal] = useState(false);
 
 
     // Contoh penggunaan ConfirmDialog
-    const [showConfirm, setShowConfirm] =
-    useState(false);
-    const [selectedSupplier, setSelectedSupplier] =
-        useState(null);
+    const [showConfirm, setShowConfirm] = useState(false);
+    const [selectedSupplier, setSelectedSupplier] = useState(null);
     // ketika delete
     const handleDeleteClick = (supplier) => 
     {
         setSelectedSupplier(supplier);
         setShowConfirm(true);
     };
+
+    // pengriman data ke api
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        const loadData = async () => {
+            const dataServices = new  supplierServices();
+            const result = await dataServices.getAll();
+            setData(result);
+        }
+        loadData();
+    },[]);
+    
 
     return (
 
@@ -106,7 +117,8 @@ const SupplierList = () => {
 
                     <DataTable
                         columns={supplierColumns}
-                        data={suppliers}
+                        // data={suppliers}
+                        data = {data}
                         rowsPerPage={25}
                     />
 
@@ -115,6 +127,7 @@ const SupplierList = () => {
             </Card>
 
         </div>
+        
 
     );
 };
