@@ -1,8 +1,11 @@
 // import { Sequelize } from "sequelize"; //cara penulisan import module ES
 // import db from "../../config/database.js"; // cara penulisan import module ES
 
-const { Sequelize} = require('sequelize');
-const db = require('../config/database');
+// const { Sequelize} = require('sequelize');
+// const db = require('../config/database');
+
+import { Sequelize} from 'sequelize';
+import db from '../config/database.js';
 
 const { DataTypes } = Sequelize;
 
@@ -89,4 +92,6 @@ const users = db.define(
 );
 
 // export default usertTes cara penulisan expoert module ES
-module.exports = users
+// module.exports = users
+
+export default users;

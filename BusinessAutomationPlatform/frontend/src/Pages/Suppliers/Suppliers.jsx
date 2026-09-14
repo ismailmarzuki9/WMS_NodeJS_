@@ -65,15 +65,17 @@ const SupplierList = () => {
                 </AppButton>
                 <ConfirmDialog
                     show={showConfirm}
-                    onCancel={() =>
-                        setShowConfirm(false)
-                    }
+                    onCancel={() => {
+                        setShowConfirm(false);
+                        setSelectedSupplier(null);
+                    }}
                     onConfirm={() => {
                         console.log(
                             "Delete:",
                             selectedSupplier
                         );
                         setShowConfirm(false);
+                        setSelectedSupplier(null);
                     }}
                     title="Hapus Supplier"
                     message={`Apakah Anda yakin ingin menghapus ${selectedSupplier?.company_name}?`}

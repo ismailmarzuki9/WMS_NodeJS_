@@ -1,5 +1,8 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
+// const { DataTypes } = require("sequelize");
+// const sequelize = require("../config/database");
+
+import { DataTypes } from "sequelize";
+import sequelize from "../config/database.js";
 
 const StockMovement = sequelize.define("stock_movements",{
 
@@ -101,4 +104,5 @@ const StockMovement = sequelize.define("stock_movements",{
     updatedAt:false
 });
 
-module.exports=StockMovement;
+// module.exports=StockMovement;
+export default StockMovement;

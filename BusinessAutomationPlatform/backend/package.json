@@ -12,7 +12,7 @@
   },
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
+  "type": "module",
   "main": "app.js",
   "directories": {
     "test": "tests"
@@ -29,5 +29,7 @@
     "pg": "^8.22.0",
     "sequelize": "^6.37.8"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@faker-js/faker": "^10.6.0"
+  }
 }

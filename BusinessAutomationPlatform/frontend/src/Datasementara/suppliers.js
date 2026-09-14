@@ -24,5 +24,5 @@ export const suppliers = [
             phone: "082112345678",
             email: "makmur@gmail.com",
             address: "Surabaya"
-        }
+        },
 ];

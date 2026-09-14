@@ -1,5 +1,8 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
+// const { DataTypes } = require("sequelize");
+// const sequelize = require("../config/database");
+
+import { DataTypes } from "sequelize";
+import sequelize from "../config/database.js";
 
 const Toko = sequelize.define("Toko",{
 
@@ -24,4 +27,5 @@ const Toko = sequelize.define("Toko",{
     underscored:true
 });
 
-module.exports = Toko;
+// module.exports = Toko;
+export default Toko;

@@ -1,4 +1,5 @@
-const sequelize = require("../config/database");
+// const sequelize = require("../config/database");
+import sequelize from "../config/database";
 require("../migration/Product");
 
 (async () => {

@@ -172,7 +172,7 @@ function SidebarComponent({ collapsed, onToggle }) {
 
                 <Nav.Link
                     as={Link}
-                    to="/stock"
+                    to="/Invoice"
                     className="sidebar-link"
                 >
                     <span className="sidebar-icon">
@@ -181,7 +181,7 @@ function SidebarComponent({ collapsed, onToggle }) {
 
                     {!collapsed && (
                         <span>
-                            Stock
+                            Invoice
                         </span>
                     )}
                 </Nav.Link>

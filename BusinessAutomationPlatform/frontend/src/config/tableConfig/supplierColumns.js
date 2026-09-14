@@ -34,30 +34,10 @@ export const supplierColumns = [
         filterable: true
     },
 
-    // {
-    //     key: "actions",
-    //     label: "Aksi",
-    //     sortable: false,
-    //     filterable: false,
-    //     render: (row) => (
-    //         <div className="d-flex gap-2">
-    //             <AppButton
-    //                 variant="warning"
-    //                 size="sm"
-    //             >
-    //                 Edit
-    //             </AppButton>
-    //             <AppButton
-    //                 variant="danger"
-    //                 size="sm"
-    //                 onClick={() =>
-    //                     handleDeleteClick(row)
-    //                 }
-    //             >
-    //                 Delete
-    //             </AppButton>
-    //         </div>
-
-    //     )
-    // }
+    {
+        key: "actions",
+        label: "Aksi",
+        sortable: false,
+        filterable: false,
+    }
 ];

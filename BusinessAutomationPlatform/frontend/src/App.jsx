@@ -7,6 +7,7 @@ import Produk from "./Pages/Products/Produk";
 import Customer from "./Pages/Customers/Customers";
 import Gudang from "./Pages/Gudang/Gudang";
 import Suppliers from "./Pages/Suppliers/Suppliers";
+import invoice from "./Pages/Invoice/Invoice";
 // import UserRolee from "./pages/User&Role/";
 
 import NavigasiSamping from "./layouts/NavigasiSamping";
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/customers" element={<Customer />}/>
                 <Route path="/gudang" element={<Gudang />}/>
                 <Route path="/suppliers" element={<Suppliers />}/>
+                <Route path="/invoice" element={<invoice />}/>
                 {/* <Route path="/User&role" element={<UserRolee />}/> */}
             </Route>
         </Routes>

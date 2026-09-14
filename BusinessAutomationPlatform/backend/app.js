@@ -1,7 +1,7 @@
-const express = require ('express');
-const routes = require('./src/routes/web');
+import express from 'express';
+import routes from './src/routes/web.js';
 // const expressLayouts = require('express-ejs-layout');
-const cookieParser = require('cookie-parser');
+import cookieParser from 'cookie-parser';
 
 const app = express();
 
