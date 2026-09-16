@@ -227,7 +227,7 @@ const DataTable = ({
 
                             currentData.map(row => (
 
-                                <tr key={row.id}>
+                                <tr key={row.supplier_id}>
 
                                     {columns.map(column => (
 

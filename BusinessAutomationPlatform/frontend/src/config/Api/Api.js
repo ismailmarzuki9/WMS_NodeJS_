@@ -1,9 +1,11 @@
 class Api {
-    baseURL = import.meta.env.VITE_API_URL;
+
+    // baseURL = import.meta.env.VITE_API_URL;
+    baseURL = 'Http://localhost:8080';
 
     async get(endpoint) {
         const responst = await fetch(`${this.baseURL}${endpoint}`);
-        console.log(responst);
+        // console.log(responst);
         if (!responst.ok) {
             throw new Error(`HTTP Error : ${responst.status}`);
         }
@@ -12,7 +14,5 @@ class Api {
     }
 }
 
-// API = new Api('/api/suppliers');
-// console.log(API);
 
 export default Api;

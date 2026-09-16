@@ -32,13 +32,12 @@ const SupplierList = () => {
     const [data, setData] = useState([]);
     useEffect(() => {
         const loadData = async () => {
-            const dataServices = new  supplierServices();
-            const result = await dataServices.getAll();
+            const dataServices = supplierServices.getAll();
+            const result = await dataServices;
             setData(result);
         }
         loadData();
     },[]);
-    
 
     return (
 
