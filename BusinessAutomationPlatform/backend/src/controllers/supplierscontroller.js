@@ -5,7 +5,7 @@ class suppliersController {
         try {
             const findAllSuppliers = await ModelSupplier.findAll(
                {
-                limit : 100,
+                limit : 25,
                 order :[
                     ['company_name','DESC']
                 ]
