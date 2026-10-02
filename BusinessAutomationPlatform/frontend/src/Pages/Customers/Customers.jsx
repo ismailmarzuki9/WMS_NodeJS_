@@ -1,16 +1,27 @@
 import AppModel from "../../Components/Common/Modal/modal";
 import DataTable from "../../Components/Tabel/DataTable";
 
-import { customers } from "../../Datasementara/customers";
+// import { customers } from "../../Datasementara/customers";
 import { customerColumns } from "../../config/tableConfig/customerColumns";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AppModal from "../../Components/Common/Modal/modal";
 import AppButton from "../../Components/Common/Button/ButtonSave";
+import serviceAll from "../../Services/serviceAll";
+
 
 const CustomerList = () => {
 
     const [showModal, setShowModal]=
             useState(false);
+
+    const [data, setData]= useState([]);
+    useEffect(()=>{
+        const loadData = async () => {
+            const getData = await serviceAll.getAll('/customer');
+            setData(getData)
+        }
+        loadData();
+    },[]);
 
     return (
 
@@ -34,7 +45,7 @@ const CustomerList = () => {
 
             <DataTable
                 columns={customerColumns}
-                data={customers}
+                data={data}
                 rowsPerPage={25}
             />
 

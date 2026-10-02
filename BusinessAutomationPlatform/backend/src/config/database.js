@@ -1,6 +1,4 @@
 import env from 'dotenv';
-// const { Sequelize } = require("sequelize");
-
 import { Sequelize } from "sequelize";
 
 // const env = require('dotenv').config({
@@ -8,7 +6,7 @@ import { Sequelize } from "sequelize";
 // });
 
 env.config({ 
-    path : ".env"
+    path : "../../.env"
 });
 
 // console.log(env);

@@ -1,6 +1,7 @@
 import API from '../config/Api/Api.js';
 
 class supplierServices {
+    
     static api = new API()
     static async getAll(){
         const respons = await this.api.get('/api/suppliers');

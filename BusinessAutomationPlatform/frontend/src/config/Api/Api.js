@@ -5,7 +5,7 @@ class Api {
 
     async get(endpoint) {
         const responst = await fetch(`${this.baseURL}${endpoint}`);
-        // console.log(responst);
+        // console.log("ini get dari front", responst);
         if (!responst.ok) {
             throw new Error(`HTTP Error : ${responst.status}`);
         }
