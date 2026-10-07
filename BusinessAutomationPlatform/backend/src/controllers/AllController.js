@@ -32,6 +32,28 @@ class AllController {
                 }
         }
     }
+
+    static Post(model, include){
+        console.log("ini data Post", model)
+        return async (req,res)=>{
+            try {
+                const PostData = await model.create(
+                    {
+                        name : "aaa",
+                        symbol : "TK-3SSMMM"
+                    }
+                )
+                const respon = PostData.save();
+                res.status(200).json({
+                    status : "succes",
+                    code :200,
+                    data : PostData
+                })
+            } catch (err) {
+                
+            }
+        }
+    }
 }
 
 export default AllController;

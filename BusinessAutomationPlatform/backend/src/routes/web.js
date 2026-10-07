@@ -12,6 +12,7 @@ import StockMovementModel from '../migration/StockMovment.js';
 import tokoModel from '../migration/Toko.js'
 import ModelCategory from "../migration/Category.js";
 import ModelUser from "../migration/sequelinze_tbuser.js";
+import TokoModel from "../migration/Toko.js";
 
 const router = express.Router();
 
@@ -24,6 +25,9 @@ router.get('/api/produk', AllController.getAll(produkModel));
 router.get('/api/stockMovment', AllController.getAll(StockMovementModel,tokoModel));
 router.get('/api/toko', AllController.getAll(tokoModel));
 router.get('/api/category', AllController.getAll(ModelCategory));
+
+// WRITE    
+router.post('/api/toko', AllController.Post(TokoModel));
 
 
 
