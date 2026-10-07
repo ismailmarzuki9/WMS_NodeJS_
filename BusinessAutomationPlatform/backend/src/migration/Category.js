@@ -2,10 +2,11 @@
 // const sequelize = require("../config/database");
 
 import { DataTypes } from "sequelize";
-import sequelize from "../config/database.js";
+import db from '../config/database.js';
 
-const Category = sequelize.define("Category",{
-
+const Category = db.define(
+    "category",
+    {
     category_id:{
         type:DataTypes.BIGINT,
         autoIncrement:true,

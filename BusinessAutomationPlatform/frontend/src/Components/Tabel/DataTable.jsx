@@ -27,7 +27,15 @@ const DataTable = ({
     |--------------------------------------------------------------------------
     */
 
+    const getValue = (item, key) => {
+                    return key.split('.').reduce((obj, property) => {
+                        return obj?.[property];
+                    }, item);
+                };
+
     const filteredData = useMemo(() => {
+        console.log("DATA DATATABLE:", data);
+        console.log("COLUMNS:", columns);
 
         return data.filter(item => {
 
@@ -40,8 +48,9 @@ const DataTable = ({
                     return true;
                 }
 
-                const value =
-                    item[column.key];
+                const value = getValue(item, column.key);
+                // const value =
+                //     item[column.key];
 
                 if (value === null || value === undefined) {
                     return false;
@@ -187,7 +196,7 @@ const DataTable = ({
             </div>
         );
     }
-
+  
 
     return (
 
@@ -232,12 +241,11 @@ const DataTable = ({
                                     {columns.map(column => (
 
                                         <td key={column.key}>
-
+                                            
                                             {column.render
-                                                ? column.render(
-                                                    row
-                                                )
-                                                : row[column.key]
+                                                ? column.render(row)
+                                                // : row[column.key]
+                                                :getValue(row, column.key)
                                             }
 
                                         </td>

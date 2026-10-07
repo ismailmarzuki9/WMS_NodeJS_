@@ -1,8 +1,8 @@
 import cors from "cors";
 import express from 'express';
 import routes from './src/routes/web.js';
-// const expressLayouts = require('express-ejs-layout');
 import cookieParser from 'cookie-parser';
+import "./src/migration/associations.js";
 
 const app = express();
 

@@ -104,5 +104,6 @@ const StockMovement = sequelize.define("stock_movements",{
     updatedAt:false
 });
 
+
 // module.exports=StockMovement;
 export default StockMovement;

@@ -1,18 +1,22 @@
 
 class AllController {
 
-     static getAll(model){
-        console.log(model);
+     static getAll(model, include){
+        console.log("relasi yang di bawa",include);
         return async (req, res) =>
         {
                 try {
                     const GetData = await model.findAll(
                         {
-                            limit : 50,
+                            limit : 10,
                             order :[
                                      ['createdAt','DESC']
+                            ],
+                            include :[
+                                    include
                             ]
                         }
+                        
                     );
                     res.status(200).json({
                         status : "succes",
