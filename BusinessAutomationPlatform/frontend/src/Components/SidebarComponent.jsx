@@ -69,6 +69,21 @@ function SidebarComponent({ collapsed, onToggle }) {
                     )}
                 </Nav.Link>
 
+                <Nav.Link
+                    as={Link}
+                    to="/Toko"
+                    className="sidebar-link"
+                >
+                    <span className="sidebar-icon">
+                        🏪
+                    </span>
+
+                    {!collapsed && (
+                        <span>
+                            Toko
+                        </span>
+                    )}
+                </Nav.Link>
 
                 <Nav.Link
                     as={Link}

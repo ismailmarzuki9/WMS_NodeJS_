@@ -7,5 +7,11 @@ class serviceAll {
         // console.log(respon);
         return respon.data;
     }
+
+    static async post(endpoin,data){
+        console.log("post data")
+        const respon = await this.api.post(`/api${endpoin}`, data);
+        return respon.data;
+    }
 }
 export default serviceAll;

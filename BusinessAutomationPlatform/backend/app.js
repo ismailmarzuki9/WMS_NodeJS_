@@ -17,6 +17,15 @@ app.use(express.json());
 
 app.use(cookieParser()); // untuk get cookie saat sudah login
 
+// app.use((req, res, next) => {
+//     console.log(">>> REQUEST MASUK APP.JS");
+//     console.log("METHOD :", req.method);
+//     console.log("URL    :", req.originalUrl);
+//     console.log("BODY   :", req.body);
+
+//     next();
+// });
+
 app.use('/',routes);
 
 app.listen(8080,() =>{
