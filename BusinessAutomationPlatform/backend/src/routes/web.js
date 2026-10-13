@@ -27,14 +27,16 @@ router.get('/api/toko', AllController.getAll(tokoModel));
 router.get('/api/category', AllController.getAll(ModelCategory));
 
 // WRITE    
-router.post('/api/Posttoko',
+// router.post('/api/Posttoko',
 
-     (req, res, next) => {
-        console.log(">>> ROUTE /api/Posttoko TERPANGGIL");
-        next();
-    },
+//      (req, res, next) => {
+//         console.log(">>> ROUTE /api/Posttoko TERPANGGIL");
+//         next();
+//     },
 
-    AllController.Post(TokoModel));
+//     AllController.Post(TokoModel));
+
+router.post('/api/Posttoko', AllController.Post(TokoModel));
 
 
 

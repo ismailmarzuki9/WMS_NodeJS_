@@ -23,12 +23,12 @@ import create_tb_Stockmovment from "./StockMovment.js";
 
         console.log("Database Connected");
 
-        await create_tb_user.sync(); // kode yang membuat tabel
-        await create_tb_Supplier.sync(); // kode yang membuat tabel
-        await create_tb_Customer.sync(); // kode yang membuat tabel
-        await create_tb_Category.sync(); // kode yang membuat tabel
-        await create_tb_Toko.sync(); // kode yang membuat tabel
-        await create_tb_Product.sync(); // kode yang membuat tabel
+        // await create_tb_user.sync(); // kode yang membuat tabel
+        // await create_tb_Supplier.sync(); // kode yang membuat tabel
+        // await create_tb_Customer.sync(); // kode yang membuat tabel
+        // await create_tb_Category.sync(); // kode yang membuat tabel
+        // await create_tb_Toko.sync(); // kode yang membuat tabel
+        // await create_tb_Product.sync(); // kode yang membuat tabel
         await create_tb_Stockmovment.sync(); // kode yang membuat tabel
         
         console.log("Tabel berhasil dibuat");

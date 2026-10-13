@@ -3,7 +3,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database.js";
 
-const Product = sequelize.define("cari saya dengan cara Ctrl + Shift + F lalu ketik kataYgdi cari", {
+const Product = sequelize.define("Product", {
 
     Product_id:{
         type:DataTypes.BIGINT,

@@ -2,7 +2,7 @@
 class AllController {
 
      static getAll(model, include){
-        // console.log("relasi yang di bawa",include);
+        console.log("relasi yang di bawa",include);
         return async (req, res) =>
         {
                 try {

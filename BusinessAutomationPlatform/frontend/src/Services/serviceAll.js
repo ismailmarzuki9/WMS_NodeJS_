@@ -4,7 +4,7 @@ class serviceAll {
 
     static async getAll (endpoin2){
         const respon = await this.api.get(`/api${endpoin2}`);
-        // console.log(respon);
+        console.log("F 1",respon);
         return respon.data;
     }
 

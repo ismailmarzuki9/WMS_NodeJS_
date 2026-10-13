@@ -3,9 +3,13 @@
 
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database.js";
+import "./Product.js";
+import "./sequelinze_tbuser.js";
+import "./Toko.js";
+import "./Customer.js";
 
 const StockMovement = sequelize.define("stock_movements",{
-
+    
     id:{
         type:DataTypes.BIGINT,
         autoIncrement:true,
@@ -16,7 +20,7 @@ const StockMovement = sequelize.define("stock_movements",{
         type:DataTypes.BIGINT,
         allowNull:false,
         references:{
-            model:"products",
+            model:"Products",
             key:"Product_id"
         }
     },
