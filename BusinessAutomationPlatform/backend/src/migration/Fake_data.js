@@ -57,7 +57,7 @@ async function seedDatabase() {
         }));
 
         // 2. Generate 50 data Supplier palsu
-        const fakeSuppliers = Array.from({ length: 5 }).map(() => ({
+        const fakeSuppliers = Array.from({ length: 50 }).map(() => ({
             company_name: faker.commerce.productName(),
             owner_name  : faker.person.fullName(),
             phone       : faker.phone.number(),
@@ -65,11 +65,11 @@ async function seedDatabase() {
             address     : faker.location.streetAddress()
         }));
 
-        const fakerCategory = Array.from ({length : 20}).map(()=>({
+        const fakerCategory = Array.from ({length : 50}).map(()=>({
             name : faker.person.fullName(),
         }));
 
-        const fakeProducts = Array.from({ length: 10 }).map(() => ({
+        const fakeProducts = Array.from({ length: 50 }).map(() => ({
             category_id: faker.number.int({ min: 1, max: 5 }),
             supplier_id: faker.number.int({ min: 1, max: 5 }),
 
@@ -148,7 +148,7 @@ async function seedDatabase() {
 
 
         // // Generate stock movement
-        const fakerStockMovement = Array.from({ length: 20 }).map(() => {
+        const fakerStockMovement = Array.from({ length: 30 }).map(() => {
 
             const referenceType = faker.helpers.arrayElement([
                 "PURCHASE",

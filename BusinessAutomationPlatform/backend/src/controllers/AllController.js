@@ -1,23 +1,31 @@
 
 class AllController {
 
+    // Yang perlu kamu pahami:
+    // - relation adalah nama parameter buatanmu sendiri.
+    // - include adalah opsi resmi Sequelize untuk mengambil data dari model yang berelasi.
+    // Jadi, jika relation berisi model Toko, kamu harus meneruskannya ke properti include.
+
      static getAll(model, include){
-        console.log("relasi yang di bawa",include);
+        console.log("relasinya", include);
+        
         return async (req, res) =>
         {
                 try {
-                    const GetData = await model.findAll(
-                        {
+
+                    const option = {
                             limit : 10,
                             order :[
                                      ['createdAt','DESC']
                             ],
-                            include :[
-                                    include
-                            ]
                         }
-                        
-                    );
+
+                    if (include){
+                            option.include = [include];
+                    }
+                    
+                    const GetData = await model.findAll(option);
+
                     res.status(200).json({
                         status : "succes",
                         code : 200,
@@ -27,14 +35,14 @@ class AllController {
                     res. status(500).json({
                         status :"Error !",
                         code : 500,
-                        message : "Data gagal"
+                        message : err.message
                     });            
                 }
         }
     }
 
     static Post(model){
-        console.log("ini data MOdel", model);
+        console.log("ini data post MOdel", model);
         return async (req,res)=>{
             console.log(req.body);
             try {
