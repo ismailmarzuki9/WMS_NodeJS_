@@ -3,6 +3,7 @@ import Table from "react-bootstrap/Table";
 
 import TableHeader from "./TableHeader";
 import TablePagination from "./TablePagination";
+import TabelAction from "./TabelAction";
 
 const DataTable = ({
     columns,
@@ -34,8 +35,8 @@ const DataTable = ({
                 };
 
     const filteredData = useMemo(() => {
-        console.log("DATA DATATABLE:", data);
-        console.log("COLUMNS:", columns);
+        // console.log("DATA DATATABLE:", data);
+        // console.log("COLUMNS:", columns);
 
         return data.filter(item => {
 
@@ -247,10 +248,13 @@ const DataTable = ({
                                                 // : row[column.key]
                                                 :getValue(row, column.key)
                                             }
-
                                         </td>
 
                                     ))}
+                                    <TabelAction
+                                    id={row.toko_id}
+                                    />
+                                    
 
                                 </tr>
 

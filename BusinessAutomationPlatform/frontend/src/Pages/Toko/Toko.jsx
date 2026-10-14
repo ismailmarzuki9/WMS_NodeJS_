@@ -18,7 +18,7 @@ const Toko = () =>{
             setData(respon);
         }
         loadData()
-    },[])
+    },[setData])
 
     return(
         <div className="container">

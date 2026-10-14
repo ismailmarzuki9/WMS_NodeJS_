@@ -11,4 +11,9 @@ export const tokoColumnts = [
         sortable: true,
         filterable: true
     },
+    {
+        key: "action",
+        label: "action",
+        
+    },
 ];

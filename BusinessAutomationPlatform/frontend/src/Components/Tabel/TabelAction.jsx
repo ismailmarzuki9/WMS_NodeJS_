@@ -1,43 +1,33 @@
-// const tabel action = (
-//     key,
-//     label,
-//     sortabel,
-//     filterable,
-//     render
-// ) => {
+import Button from "react-bootstrap/esm/Button";
+import serviceAll from "../../Services/serviceAll";
 
-//     key: "actions",
-//     label: "Aksi",
+const TabelAction =({
+ id,
+})=> {
+    const Edit = (id) =>{
+        console.log("Id nya", id);
 
-//     sortable: false,
-//     filterable: false,
+    }
 
-//     render: (row) => (
-//         <div className="d-flex gap-2">
+    const Delete = (id) => {
+        const isConfirmed = window.confirm("Apakah Anda yakin ingin menghapus data ini?");
+        if (isConfirmed) {
+            // Jalankan fungsi hapus di sini
+            console.log("Data dihapus", id);
+        }
+    }
 
-//             <button
-//                 className="btn btn-sm btn-outline-primary"
-//                 onClick={() => console.log("Detail", row)}
-//             >
-//                 Detail
-//             </button>
+    return (
+               <td>
+                   <Button variant="primary" onClick={() => Edit(id)} className="btn-save"> Edit </Button>
 
-//             <button
-//                 className="btn btn-sm btn-outline-warning"
-//                 onClick={() => console.log("Edit", row)}
-//             >
-//                 Edit
-//             </button>
+                   <Button variant="danger" onClick={() => Delete(id)} className="btn-save" > Delete </Button>
 
-//             <button
-//                 className="btn btn-sm btn-outline-danger"
-//                 onClick={() => console.log("Delete", row)}
-//             >
-//                 Delete
-//             </button>
+               </td>
+                
+            
+        
+    )
+}
 
-//         </div>
-//     )
-// }
-
-// export default action;
+export default TabelAction;
