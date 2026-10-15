@@ -9,8 +9,13 @@ class serviceAll {
     }
 
     static async post(endpoin,data){
-        console.log("post data")
+        // console.log("post data")
         const respon = await this.api.post(`/api${endpoin}`, data);
+        return respon.data;
+    }
+
+    static async getId(endpoin){
+        const respon = await this.api.getId(`/api${endpoin}`);
         return respon.data;
     }
 }

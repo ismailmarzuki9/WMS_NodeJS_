@@ -14,7 +14,7 @@ class Api {
     }
 
     async post(endpoint, data) {
-        console.log(" yang mau di post", endpoint, data);
+        // console.log(" yang mau di post", endpoint, data);
         
         const responst = await fetch(`${this.baseURL}${endpoint}`, {
             method: "POST",
@@ -27,6 +27,15 @@ class Api {
         if (!responst.ok) {
             throw new Error(` HTTP Error : ${responst.status}`);           
         }
+        return await responst.json();
+    }
+
+    async getId(endpoin) {
+        const responst = await fetch(`${this.baseURL}${endpoin}`);
+        if (!responst.ok) {
+            throw new Error(`HTTP Error : ${responst.status}`);
+        }
+        
         return await responst.json();
     }
 }
