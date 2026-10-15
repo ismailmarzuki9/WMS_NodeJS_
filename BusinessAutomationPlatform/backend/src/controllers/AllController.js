@@ -77,6 +77,11 @@ class AllController {
                 console.log(res);
                 const getID = await model.findByPk(id)
                 console.log("ini hasi ctrl get", getID);
+                res.status(200).json({
+                    status : "succes",
+                    code : 200,
+                    data : getID
+                })
             }
         }catch (err){
             console.log("getID",message.err)
