@@ -7,8 +7,7 @@ class AllController {
     // Jadi, jika relation berisi model Toko, kamu harus meneruskannya ke properti include.
 
      static getAll(model, include){
-        console.log("relasinya", include);
-        
+        // console.log("relasinya", include);
         return async (req, res) =>
         {
                 try {
@@ -42,7 +41,7 @@ class AllController {
     }
 
     static Post(model){
-        console.log("ini data post MOdel", model);
+        // console.log("ini data post MOdel", model);
         return async (req,res)=>{
             console.log(req.body);
             try {
@@ -67,6 +66,32 @@ class AllController {
                         // message : err.stack
                     });  
             }
+        }
+    }
+// EDIT 
+    static getID(model){
+        console.log("ini apa", model);
+        try{
+            return async (req, res)=>{
+                const { id } = req.params; // untuk medapatkan id dari url request roting express
+                console.log(res);
+                const getID = await model.findByPk(id)
+                console.log("ini hasi ctrl get", getID);
+            }
+        }catch (err){
+            console.log("getID",message.err)
+        }
+    }
+    static editData(model){
+        try {
+            return async (req, res) =>{
+                const editData = await model.update(
+    
+                )
+            }
+
+        } catch (err) {
+            console.log("", message.err);
         }
     }
 }

@@ -26,7 +26,7 @@ router.get('/api/stockMovment', AllController.getAll(StockMovementModel,tokoMode
 router.get('/api/toko', AllController.getAll(tokoModel));
 router.get('/api/category', AllController.getAll(ModelCategory));
 
-// WRITE    
+// WRITE CREATE
 // router.post('/api/Posttoko',
 
 //      (req, res, next) => {
@@ -37,7 +37,21 @@ router.get('/api/category', AllController.getAll(ModelCategory));
 //     AllController.Post(TokoModel));
 
 router.post('/api/Posttoko', AllController.Post(tokoModel));
+router.post('/api/Posttoko', AllController.Post(produkModel));
 
-
+// UPDATE 
+router.get('/api/toko/:id', 
+    (req, res, next)=>{
+        console.log(">>>>>> ini req get")
+        next();
+    },
+    AllController.getID(tokoModel));
+router.put('/api/toko/:id',
+     
+    (req, res, next)=>{
+        console.log(">>>>>> ini req",req)
+        next();
+    },
+    AllController.editData(tokoModel));
 
 export default router;
