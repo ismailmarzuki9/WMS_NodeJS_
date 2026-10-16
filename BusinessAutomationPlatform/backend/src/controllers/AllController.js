@@ -70,13 +70,10 @@ class AllController {
     }
 // EDIT 
     static getID(model){
-        console.log("ini apa", model);
         try{
             return async (req, res)=>{
                 const { id } = req.params; // untuk medapatkan id dari url request roting express
-                console.log(res);
                 const getID = await model.findByPk(id)
-                console.log("ini hasi ctrl get", getID);
                 res.status(200).json({
                     status : "succes",
                     code : 200,

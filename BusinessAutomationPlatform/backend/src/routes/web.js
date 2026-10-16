@@ -40,12 +40,7 @@ router.post('/api/Posttoko', AllController.Post(tokoModel));
 router.post('/api/Posttoko', AllController.Post(produkModel));
 
 // UPDATE 
-router.get('/api/toko/:id', 
-    (req, res, next)=>{
-        console.log(">>>>>> ini req get")
-        next();
-    },
-    AllController.getID(tokoModel));
+router.get('/api/toko/:id', AllController.getID(tokoModel));
 router.put('/api/toko/:id',
      
     (req, res, next)=>{
