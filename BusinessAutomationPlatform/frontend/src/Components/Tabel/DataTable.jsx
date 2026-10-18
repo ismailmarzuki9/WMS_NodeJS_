@@ -11,6 +11,9 @@ const DataTable = ({
     rowsPerPage = 25,
     loading = false,
     // renderActions={renderActions}
+    idField,
+    editPath,
+    deletePath
 }) => {
 
     const [currentPage, setCurrentPage] = useState(1);
@@ -252,7 +255,9 @@ const DataTable = ({
 
                                     ))}
                                     <TabelAction
-                                    id={row.toko_id}
+                                    id={row[idField]}
+                                    editPath={editPath}
+                                    deletePath={deletePath}
                                     />
                                     
 

@@ -52,6 +52,8 @@ const ProductList = () => {
                 columns={productColumns}
                 data={products}
                 rowsPerPage={25}
+                idField="Product_id"
+                editPath="/product"
             />
 
 

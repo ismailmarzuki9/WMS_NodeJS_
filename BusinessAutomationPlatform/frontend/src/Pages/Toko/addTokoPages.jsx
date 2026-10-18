@@ -40,7 +40,7 @@ const addTokoPages = ()=> {
                     Symbol :
                     <input type="text" name="symbol"required />
                 </label>
-                <button type="submit" na>simpan</button>
+                <button type="submit">simpan</button>
             </form>
         </div>
     )

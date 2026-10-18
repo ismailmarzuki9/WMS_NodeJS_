@@ -1,3 +1,4 @@
+import { where } from "sequelize";
 
 class AllController {
 
@@ -70,8 +71,8 @@ class AllController {
     }
 // EDIT 
     static getID(model){
-        try{
-            return async (req, res)=>{
+        return async (req, res)=>{
+            try {
                 const { id } = req.params; // untuk medapatkan id dari url request roting express
                 const getID = await model.findByPk(id)
                 res.status(200).json({
@@ -79,21 +80,72 @@ class AllController {
                     code : 200,
                     data : getID
                 })
-            }
-        }catch (err){
-            console.log("getID",message.err)
+            } catch (error) {
+                console.log("getID",message.err)
+            }  
         }
     }
-    static editData(model){
-        try {
-            return async (req, res) =>{
-                const editData = await model.update(
-    
-                )
-            }
 
-        } catch (err) {
-            console.log("", message.err);
+    static editData(model, idField){
+        return async (req, res) =>{
+            try {
+            const {id} = req.params;
+            console.log("ini data yang akan di edit ", req.body);
+            const editData = await model.update(
+                {
+                    name : req.body.name,
+                    symbol : req.body.symbol
+                },
+                {
+                    where : {
+                        // toko_id : id
+                        [idField] : id
+                    }
+                }
+            )
+            res.status(200).json({
+                status : "succes",
+                code : 200,
+                data : editData
+            })
+     
+            } catch (err) {
+                console.log("", message.err);
+            }
+        }
+    
+    }
+
+    static delete (model, idField) {
+        return async (req, res) => {
+            try {
+            const {id} = req.params;
+            const deleted  = await model.destroy({
+                where : {
+                    [idField] : id,
+                },              
+            })
+            console.log(deleted);
+            
+            if (deleted === 0) {
+                return res.status(404).json({
+                    status: "error",
+                    message: "Data tidak ditemukan",
+                });
+            }
+             res.status(200).json({
+                status : "succes",
+                code : 200,
+                data : deleted 
+            });
+
+            } catch (err) {
+                console.error("Delete error:", err);
+                return res.status(500).json({
+                    status: "error",
+                    message: "Gagal menghapus data",
+                });
+            }
         }
     }
 }

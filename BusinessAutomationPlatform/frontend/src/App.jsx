@@ -9,6 +9,7 @@ import Gudang from "./Pages/Gudang/Gudang";
 import Suppliers from "./Pages/Suppliers/Suppliers";
 import Invoice from "./Pages/Invoice/Invoice";
 import Toko from "./Pages/Toko/Toko";
+import TokoEdit from "./Pages/Toko/edit_toko";
 // import UserRolee from "./pages/User&Role/";
 
 import NavigasiSamping from "./layouts/NavigasiSamping";
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/suppliers" element={<Suppliers />}/>
                 <Route path="/invoice" element={<Invoice />}/>
                 <Route path="/Toko" element={<Toko />}/>
+                <Route path="/edit_toko/:id" element={<TokoEdit />}/>
                 {/* <Route path="/User&role" element={<UserRolee />}/> */}
             </Route>
         </Routes>

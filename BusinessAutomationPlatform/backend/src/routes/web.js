@@ -37,16 +37,17 @@ router.get('/api/category', AllController.getAll(ModelCategory));
 //     AllController.Post(TokoModel));
 
 router.post('/api/Posttoko', AllController.Post(tokoModel));
-router.post('/api/Posttoko', AllController.Post(produkModel));
+router.post('/api/Postproduk', AllController.Post(produkModel));
 
 // UPDATE 
 router.get('/api/toko/:id', AllController.getID(tokoModel));
-router.put('/api/toko/:id',
-     
-    (req, res, next)=>{
-        console.log(">>>>>> ini req",req)
-        next();
-    },
-    AllController.editData(tokoModel));
+router.put('/api/toko/:id', AllController.editData(tokoModel, "toko_id"));
+
+router.get('/api/category/:id', AllController.getID(tokoModel));
+router.put('/api/category/:id', AllController.editData(tokoModel, "category_id"));
+
+// DELETED
+router.delete('/api/toko/delete/:id', AllController.delete(tokoModel, "toko_id"));
+router.delete('/api/category/delete/:id', AllController.delete(ModelCategory, "category_id"));
 
 export default router;

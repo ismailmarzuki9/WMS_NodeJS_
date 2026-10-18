@@ -47,6 +47,8 @@ const CustomerList = () => {
                 columns={customerColumns}
                 data={data}
                 rowsPerPage={25}
+                idFiels="customer_id"
+                editPath='/customerEdit'
             />
 
         </div>

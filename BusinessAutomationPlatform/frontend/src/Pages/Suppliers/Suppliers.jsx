@@ -119,6 +119,8 @@ const SupplierList = () => {
                         // data={suppliers}
                         data = {data}
                         rowsPerPage={25}
+                        idField="supplier_id"
+                        editPath="/supplier"
                     />
 
                 </Card.Body>

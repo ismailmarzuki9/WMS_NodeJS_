@@ -32,11 +32,37 @@ class Api {
 
     async getId(endpoin) {
         const responst = await fetch(`${this.baseURL}${endpoin}`);
+
         if (!responst.ok) {
             throw new Error(`HTTP Error : ${responst.status}`);
         }
         
         return await responst.json();
+    }
+
+    async put(endpoin, data){
+        const responst = await fetch(`${this.baseURL}${endpoin}`,{
+            method : "PUT",
+            headers : {
+                 "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+        if (!responst.ok) {
+            throw new Error(` HTTP Error : ${responst.status}`);           
+        }
+        return await responst.json();
+    }
+
+    async delete(endpoin){
+        console.log(endpoin);
+        const respon = await fetch(`${this.baseURL}${endpoin}`,{
+            method : "DELETE"
+        })
+        if (!respon.ok){
+            throw new Error(` HTTP Error : ${respon.status}`);
+        }
+        return await respon.json();
     }
 }
 

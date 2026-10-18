@@ -22,6 +22,8 @@ const Invoice = () =>{
                 columns={kolomInvoice}
                 data={data}
                 rowsPerPage={10}
+                idField="stockmovement_id"
+                editPath="/stockmovement"
             />
         </div>
     );
